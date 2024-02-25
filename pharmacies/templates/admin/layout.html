@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div id="wrapper">
+    {% include 'admin/partials/sidebar.html' %}
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            {% include 'admin/partials/navbar.html' %}
+            <div class="container-fluid">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+{% endblock %}

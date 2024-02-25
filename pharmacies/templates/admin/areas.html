@@ -1,0 +1,46 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between">
+        <h1 class="m-0 font-weight-bold text-primary">All areas</h1>
+        <div>
+            <a href="#" class="btn btn-success btn-circle" data-toggle="modal" data-target="#addAreaModal"><i
+                    class="fa fa-plus"></i></a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for area in areas %}
+                <tr>
+                    <td>{{area.name}}</td>
+                    <td>{{area.city.name}}</td>
+                    <td>
+                        <a href="#" class="btn btn-info btn-circle"><i class="fa fa-info"></i></a>
+                        <a class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editAreaModal-{{area.id}}"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-danger btn-circle" data-toggle="modal" data-target="#deleteAreaModal-{{area.id}}"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% include 'admin/modals/edit_area_modal.html' %}
+                {% include 'admin/modals/delete_area_modal.html' %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'admin/modals/add_area_modal.html' %}
+
+
+{% endblock %}

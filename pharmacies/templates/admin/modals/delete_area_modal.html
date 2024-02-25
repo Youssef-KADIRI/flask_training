@@ -1,0 +1,23 @@
+<div class="modal fade" id="deleteAreaModal-{{area.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form class="user" action="{{url_for('delete_area', id=area.id )}}" method="POST">
+                <div class="modal-body">
+                    {{ delete_area_form.csrf_token }}
+                    <p>This action is irreversible. If you are sure, press "Delete".</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    {{delete_area_form.submit(class="btn btn-danger")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
