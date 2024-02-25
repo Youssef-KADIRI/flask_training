@@ -5,6 +5,8 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
+#hello
+
 app.secret_key = "my_secret_key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost:3306/pharmacy_db'
 
